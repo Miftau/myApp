@@ -221,15 +221,22 @@ def create_venue_form():
 def create_venue_submission():
   # TODO: insert form data as a new Venue record in the db, instead
   # TODO: modify data to be the data object returned from db insertion
+  error = None
+  if request.method == 'POST':
+    if request.form['name'] == Venue.name or \
+      request.form['city&state'] == Venue.city and Venue.state or \
+        request.form['address'] == Venue.address:
+          error =  "The Venue already exist"
+    else:
 
   # on successful db insert, flash success
-  flash('Venue ' + request.form['name'] + ' was successfully listed!')
+      flash('Venue ' + request.form['name'] + ' was successfully listed!')
   # TODO: on unsuccessful db insert, flash an error instead.
   # e.g., flash('An error occurred. Venue ' + data.name + ' could not be listed.')
   # see: http://flask.pocoo.org/docs/1.0/patterns/flashing/
   return render_template('pages/home.html')
 
-@app.route('/venues/1', methods=['DELETE'])  # type: ignore
+@app.route('/venues/int:<venue_id>', methods=['DELETE'])  # type: ignore
 def delete_venue(venue_id):
   # TODO: Complete this endpoint for taking a venue_id, and using
   # SQLAlchemy ORM to delete a record. Handle cases where the session commit could fail.
