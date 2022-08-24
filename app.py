@@ -42,6 +42,12 @@ class Venue(db.Model):
     facebook_link = db.Column(db.String(120), nullable = False)
     number_of_upcoming_shows = db.Column(db.Integer, nullable = False)
     website = db.Column(db.String(120), nullable = False)
+        
+    def __repr__(self):
+      return f'<Venue {self.id} {self.name} {self.city} {self.state} {self.address} {self.phone} {self.image_link} \
+    {self.facebook_link} {self.number_of_upcoming_shows} {self.website}'
+
+    db.create_all()
     
     
 
@@ -60,8 +66,15 @@ class Artist(db.Model):
     facebook_link = db.Column(db.String(120), nullable = False)
     website = db.Column(db.String(120), nullable = False)
     number_of_upcoming_shows = db.Column(db.Integer, nullable = False)
+    address = db.Column(db.String(120), nullable = False)
     
-    migrate = Migrate(app, db)
+    def __repr__(self):
+      return f'<Artist {self.id} {self.name} {self.city} {self.state} {self.address} {self.phone} {self.image_link} \
+    {self.facebook_link} {self.number_of_upcoming_shows} {self.website}'
+
+db.create_all()    
+    
+migrate = Migrate(app, db)
 
     # TODO: implement any missing fields, as a database migration using Flask-Migrate
 
@@ -98,27 +111,7 @@ def index():
 def venues():
   # TODO: replace with real venues data.
   #       num_upcoming_shows should be aggregated based on number of upcoming shows per venue.
-  data=[{
-    "city": Venue.city,
-    "state": Venue.state,
-    "venues": [{
-      "id": Venue.id,
-      "name": Venue.name,
-      "num_upcoming_shows": Venue.number_of_upcoming_shows,
-    }, {
-      "id": Venue.id,
-      "name": Venue.name,
-      "num_upcoming_shows": Venue.number_of_upcoming_shows,
-    }]
-  }, {
-    "city": Venue.city,
-    "state": Venue.state,
-    "venues": [{
-      "id": Venue.id,
-      "name": Venue.name,
-      "num_upcoming_shows": Venue.number_of_upcoming_shows,
-    }]
-  }]
+  data= Venue.query.all()
   return render_template('pages/venues.html', areas=data);
 
 @app.route('/venues/search', methods=['POST'])
