@@ -504,4 +504,8 @@ if not app.debug:
     file_handler.setLevel(logging.INFO)
     app.logger.addHandler(file_handler)
     app.logger.info('errors')
+    
+if __name__ == '__main__':
+  app.run(host='0.0.0.0', port=3000)
+  debug = "on"
 
