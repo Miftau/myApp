@@ -1,6 +1,7 @@
 #----------------------------------------------------------------------------## Imports
 #----------------------------------------------------------------------------#import json
 from sqlite3 import DateFromTicks
+from sre_parse import State
 import dateutil.parser
 import labels
 from flask import Flask, render_template, request, flash, redirect, url_for
@@ -12,7 +13,7 @@ from logging import Formatter, FileHandler
 from flask_wtf import form
 from forms import *
 from flask_migrate import Migrate
-
+from flask import jsonify
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
@@ -34,18 +35,21 @@ class Venue(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable = False)
-    city = db.Column(db.String(120), nullable = False)
-    state = db.Column(db.String(120), nullable = False)
-    address = db.Column(db.String(120), nullable = False)
-    phone = db.Column(db.String(120), nullable = False)
-    image_link = db.Column(db.String(500), nullable = False)
-    facebook_link = db.Column(db.String(120), nullable = False)
-    number_of_upcoming_shows = db.Column(db.Integer, nullable = False)
-    website = db.Column(db.String(120), nullable = False)
+    city = db.Column(db.String(120))
+    state = db.Column(db.String(120))
+    address = db.Column(db.String(120))
+    phone = db.Column(db.String(120))
+    image_link = db.Column(db.String(500))
+    facebook_link = db.Column(db.String(120))
+    number_of_upcoming_shows = db.Column(db.Integer)
+    website_link = db.Column(db.String(120))
+    genres = db.Column(db.String(120))
+    seeking_description = db.Column(db.String(1000))
+    seeking_talent = db.Column(db.String)
         
     def __repr__(self):
       return f'<Venue {self.id} {self.name} {self.city} {self.state} {self.address} {self.phone} {self.image_link} \
-    {self.facebook_link} {self.number_of_upcoming_shows} {self.website}'
+    {self.facebook_link} {self.number_of_upcoming_shows} {self.website_link} {self.genres} {self.seeking_description} {self.seeking_talent}'
 
     db.create_all()
     
@@ -61,16 +65,19 @@ class Artist(db.Model):
     city = db.Column(db.String(120), nullable = False)
     state = db.Column(db.String(120), nullable = False)
     phone = db.Column(db.String(120), nullable = False)
-    genres = db.Column(db.String(120), nullable = False)
-    image_link = db.Column(db.String(500), nullable = False)
-    facebook_link = db.Column(db.String(120), nullable = False)
-    website = db.Column(db.String(120), nullable = False)
-    number_of_upcoming_shows = db.Column(db.Integer, nullable = False)
-    address = db.Column(db.String(120), nullable = False)
+    genres = db.Column(db.String(120))
+    image_link = db.Column(db.String(500))
+    facebook_link = db.Column(db.String(120))
+    website_link = db.Column(db.String(120))
+    number_of_upcoming_shows = db.Column(db.Integer)
+    address = db.Column(db.String(120))
+    genres = db.Column(db.String(120))
+    seeking_description = db.Column(db.String(1000))
+    seeking_talent = db.Column(db.String)
     
     def __repr__(self):
       return f'<Artist {self.id} {self.name} {self.city} {self.state} {self.address} {self.phone} {self.image_link} \
-    {self.facebook_link} {self.number_of_upcoming_shows} {self.website}'
+    {self.facebook_link} {self.number_of_upcoming_shows} {self.website_link} {self.seeking_description} {self.genres} {self.seeking_talent}'
 
 db.create_all()    
     
@@ -215,16 +222,34 @@ def create_venue_submission():
   # TODO: insert form data as a new Venue record in the db, instead
   # TODO: modify data to be the data object returned from db insertion
   error = None
+  form = VenueForm()
   if request.method == 'POST':
-    if request.form['name'] == Venue.name or \
-      request.form['city&state'] == Venue.city and Venue.state or \
-        request.form['address'] == Venue.address:
-          error =  "The Venue already exist"
-    else:
+    name = request.form['name'] 
+    city = request.form['city'] 
+    state = request.form['state'] 
+    address = request.form['address'] 
+    phone = request.form['phone'] 
+    genres = request.form['genres'] 
+    facebook_link = request.form['facebook_link'] 
+    website_link = request.form['website_link'] 
+    seeking_talent = request.form['seeking_talent'] 
+    seeking_description = request.form['seeking_description'] 
+    new_venue = Venue(name=name, city=city, state=state, address=address, phone=phone, genres=genres, facebook_link = facebook_link, \
+      website_link=website_link, seeking_description = seeking_description, seeking_talent=seeking_talent)
+    
+    db.session.add(new_venue)
+    db.session.commit()
 
   # on successful db insert, flash success
-      flash('Venue ' + request.form['name'] + ' was successfully listed!')
+    flash('Venue ' + request.form['name'] + ' was successfully listed!')
   # TODO: on unsuccessful db insert, flash an error instead.
+  else:
+    for field, errors in form.errors.items():
+            for error in errors:
+                flash("Error in {}: {}".format(
+                    getattr(form, field).label.text,
+                    error
+                ), 'An error occurred, your venue' + request.form['name'] + ' can\'t be listed')
   # e.g., flash('An error occurred. Venue ' + data.name + ' could not be listed.')
   # see: http://flask.pocoo.org/docs/1.0/patterns/flashing/
   return render_template('pages/home.html')
