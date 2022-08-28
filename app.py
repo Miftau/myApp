@@ -46,6 +46,9 @@ class Venue(db.Model):
     genres = db.Column(db.String(120))
     seeking_description = db.Column(db.String(1000))
     seeking_talent = db.Column(db.String)
+    venue_id = db.relationship("Show", backref= "id", collection_class = "list", cascade = "save-update")
+    venue_name = db.relationship("Show", backref= "name", collection_class = "list", cascade = "save-update")
+    
         
     def __repr__(self):
       return f'<Venue {self.id} {self.name} {self.city} {self.state} {self.address} {self.phone} {self.image_link} \
@@ -74,6 +77,9 @@ class Artist(db.Model):
     genres = db.Column(db.String(120))
     seeking_description = db.Column(db.String(1000))
     seeking_talent = db.Column(db.String)
+    artist_id = db.relationship("Show", backref= "id", collection_class = "list", cascade = "save-update")
+    artist_name = db.relationship("Show", backref= "name", collection_class = "list", cascade = "save-update")
+    artist_image_link = db.relationship("Show", backref= "image_link", collection_class = "list", cascade = "save-update")
     
     def __repr__(self):
       return f'<Artist {self.id} {self.name} {self.city} {self.state} {self.address} {self.phone} {self.image_link} \
@@ -83,16 +89,17 @@ class Artist(db.Model):
 class Show(db.Model):
     __tablename__ = 'Show'
 
-    venue_id = db.Column(db.Integer, primary_key = True)
-    venue_name = db.Column(db.String(120))
-    artist_id = db.Column(db.Integer)
-    artist_name = db.Column(db.String(120), nullable = False)
-    artist_image_link = db.Column(db.String(120))
+    id =db.Column(db.Integer, primary_key=True)
+    venue_id = db.Column(db.Integer, db.ForeignKey('Venue.id'), nullable=False)
+    venue_name = db.Column(db.Integer, db.ForeignKey('Venue.name'), nullable=True)
+    artist_id = db.Column(db.Integer, db.ForeignKey('Artist.id'), nullable=False)
+    artist_name = db.Column(db.Integer, db.ForeignKey('Artist.name'), nullable=True)
+    artist_image_link = db.Column(db.Integer, db.ForeignKey('Artist.image_link'), nullable=True)
     start_time = db.Column(db.String(120))
 
     
     def __repr__(self):
-      return f'<Show {self.venue_id} {self.venue_name} {self.artist_id} {self.artist_name} {self.artist_image_link} {self.start_time}'
+      return f'<Show {self.venue_id} {self.id} {self.venue_name} {self.artist_id} {self.artist_name} {self.artist_image_link} {self.start_time}'
 
 db.create_all()    
     
@@ -210,6 +217,15 @@ def create_venue_submission():
 def delete_venue(venue_id):
   # TODO: Complete this endpoint for taking a venue_id, and using
   # SQLAlchemy ORM to delete a record. Handle cases where the session commit could fail.
+  try:
+    delete = Venue.query.get(venue_id)
+    db.session.delete(delete)
+    db.session.commit()
+  except Exception:
+    db.session.rollback()
+  finally:
+    db.session.close()
+  
 
   # BONUS CHALLENGE: Implement a button to delete a Venue on a Venue Page, have it so that
   # clicking that button delete it from the db then redirect the user to the homepage
