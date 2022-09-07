@@ -64,12 +64,12 @@ class Artist(db.Model):
     __tablename__ = 'Artist'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable = False)
+    names = db.Column(db.String, nullable = False)
     city = db.Column(db.String(120), nullable = False)
     state = db.Column(db.String(120), nullable = False)
     phone = db.Column(db.String(120), nullable = False)
     genres = db.Column(db.String(120))
-    image_link = db.Column(db.String(500))
+    image_links = db.Column(db.String(500))
     facebook_link = db.Column(db.String(120))
     website_link = db.Column(db.String(120))
     number_of_upcoming_shows = db.Column(db.Integer)
@@ -78,11 +78,11 @@ class Artist(db.Model):
     seeking_description = db.Column(db.String(1000))
     seeking_talent = db.Column(db.String)
     artist_id = db.relationship("Show", backref= "id", collection_class = "list", cascade = "save-update")
-    artist_name = db.relationship("Show", backref= "name", collection_class = "list", cascade = "save-update")
-    artist_image_link = db.relationship("Show", backref= "image_link", collection_class = "list", cascade = "save-update")
+    artist_name = db.relationship("Show", backref= "names", collection_class = "list", cascade = "save-update")
+    artist_image_link = db.relationship("Show", backref= "image_links", collection_class = "list", cascade = "save-update")
     
     def __repr__(self):
-      return f'<Artist {self.id} {self.name} {self.city} {self.state} {self.address} {self.phone} {self.image_link} \
+      return f'<Artist {self.id} {self.names} {self.city} {self.state} {self.address} {self.phone} {self.image_links} \
     {self.facebook_link} {self.number_of_upcoming_shows} {self.website_link} {self.seeking_description} {self.genres} {self.seeking_talent}'
     
     
@@ -91,10 +91,10 @@ class Show(db.Model):
 
     id =db.Column(db.Integer, primary_key=True)
     venue_id = db.Column(db.Integer, db.ForeignKey('Venue.id'), nullable=False)
-    venue_name = db.Column(db.Integer, db.ForeignKey('Venue.name'), nullable=True)
+    venue_name = db.Column(db.Integer, db.ForeignKey('Venue.name'))
     artist_id = db.Column(db.Integer, db.ForeignKey('Artist.id'), nullable=False)
-    artist_name = db.Column(db.Integer, db.ForeignKey('Artist.name'), nullable=True)
-    artist_image_link = db.Column(db.Integer, db.ForeignKey('Artist.image_link'), nullable=True)
+    artist_name = db.Column(db.Integer, db.ForeignKey('Artist.names'))
+    artist_image_link = db.Column(db.Integer, db.ForeignKey('Artist.image_links'))
     start_time = db.Column(db.String(120))
 
     
