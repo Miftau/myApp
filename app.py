@@ -42,7 +42,7 @@ class Venue(db.Model):
     facebook_link = db.Column(db.String(120))
 
     # TODO: implement any missing fields, as a database migration using Flask-Migrate
-    genres = db.Column(db.String(120),nullable=False)
+    genres = db.Column(db.ARRAY(db.String(120)),nullable=False)
     website = db.Column(db.String(120))
     seeking_talent = db.Column(db.Boolean,default=False)
     seeking_description = db.Column(db.Text)
@@ -59,7 +59,7 @@ class Artist(db.Model):
     city = db.Column(db.String(120), nullable=False)
     state = db.Column(db.String(120), nullable=False)
     phone = db.Column(db.String(120), nullable=False)
-    genres = db.Column(db.String(120), nullable=False)
+    genres = db.Column(db.ARRAY(db.String(120)), nullable=False)
     image_link = db.Column(db.String(500))
     facebook_link = db.Column(db.String(120))
 
@@ -297,9 +297,10 @@ def show_artist(artist_id):
       "start_time": str(show.start_time)
     }
     if(show.upcoming):
-      upcoming_shows.append(show_info)
+      upcoming_shows = db.session.query(Show).join(Venue).filter(Show.artist_id==artist_id).filter(Show.start_time>datetime.now()).all()
     else:
-      past_shows.append(show_info)
+      past_shows = db.session.query(Show).join(Venue).filter(Show.artist_id==artist_id).filter(Show.start_time>datetime.now()).all()
+
   data = {
     "id": artist.id,
     "name": artist.name,
