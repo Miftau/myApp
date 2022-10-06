@@ -32,7 +32,6 @@ migration = Migrate(app, db)
 #----------------------------------------------------------------------------#
 
 
-    # TODO: implement any missing fields, as a database migration using Flask-Migrate
 
             
 #----------------------------------------------------------------------------#
