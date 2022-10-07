@@ -23,6 +23,7 @@ from models import *
 
 app = Flask(__name__)
 moment = Moment(app)
+db.init_app(app)
 
 
 # TODO: connect to a local postgresql database
@@ -44,7 +45,7 @@ def format_datetime(value, format='medium'):
       format="EEEE MMMM, d, y 'at' h:mma"
   elif format == 'medium':
       format="EE MM, dd, y h:mma"
-  return babel.dates.format_datetime(date, format)
+  return babel.dates.format_datetime(date, format) #type: ignore
 
 app.jinja_env.filters['datetime'] = format_datetime
 

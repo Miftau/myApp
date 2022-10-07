@@ -329,3 +329,273 @@ Traceback (most recent call last):
   File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_sqlalchemy\__init__.py", line 175, in __init__
     track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
 KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2022-10-07 00:30:29,269 INFO: errors [in c:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:502]
+2022-10-07 00:31:04,406 ERROR: Exception on /venues [GET] [in C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py:1679]
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x00000147CF32E8D0 (otid=0x00000147CF3915C0) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1760, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1758, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1734, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py", line 67, in venues
+    venue_areas = db.session.query(Venue.city,Venue.state).group_by(Venue.state,Venue.city).all()
+  File "<string>", line 2, in query
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\scoping.py", line 24, in _proxied
+    return self.registry()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 4225, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_sqlalchemy\__init__.py", line 175, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2022-10-07 00:31:27,907 ERROR: Exception on /venues [GET] [in C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py:1679]
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x00000147CEAD3480 (otid=0x00000147CF37E740) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1760, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1758, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1734, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py", line 67, in venues
+    venue_areas = db.session.query(Venue.city,Venue.state).group_by(Venue.state,Venue.city).all()
+  File "<string>", line 2, in query
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\scoping.py", line 24, in _proxied
+    return self.registry()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 4225, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_sqlalchemy\__init__.py", line 175, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2022-10-07 00:31:42,222 ERROR: Exception on /venues [GET] [in C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py:1679]
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x00000147CF32EC40 (otid=0x00000147CF361240) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1760, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1758, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1734, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py", line 67, in venues
+    venue_areas = db.session.query(Venue.city,Venue.state).group_by(Venue.state,Venue.city).all()
+  File "<string>", line 2, in query
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\scoping.py", line 24, in _proxied
+    return self.registry()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 4225, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_sqlalchemy\__init__.py", line 175, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2022-10-07 00:31:55,882 ERROR: Exception on /artists [GET] [in C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py:1679]
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x00000147CF4DEDA0 (otid=0x00000147CF3DA200) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1760, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1758, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1734, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py", line 208, in artists
+    data= Artist.query.with_entities(Artist.id, Artist.name).all()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_sqlalchemy\__init__.py", line 552, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    sess = self.registry()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 4225, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_sqlalchemy\__init__.py", line 175, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2022-10-07 00:32:05,109 ERROR: Exception on /venues [GET] [in C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py:1679]
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x00000147CF4E4930 (otid=0x00000147CF416080) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1760, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1758, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1734, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py", line 67, in venues
+    venue_areas = db.session.query(Venue.city,Venue.state).group_by(Venue.state,Venue.city).all()
+  File "<string>", line 2, in query
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\scoping.py", line 24, in _proxied
+    return self.registry()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 4225, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_sqlalchemy\__init__.py", line 175, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2022-10-07 00:32:11,890 ERROR: Exception on /venues/search [POST] [in C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py:1679]
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x00000147CF4E5A60 (otid=0x00000147CF3F3640) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1760, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1758, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1734, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py", line 91, in search_venues
+    results = Venue.query.filter(Venue.name.alike(f"%{request.form['search_term']}%")).all()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_sqlalchemy\__init__.py", line 552, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    sess = self.registry()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 4225, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_sqlalchemy\__init__.py", line 175, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2022-10-07 00:32:19,096 ERROR: Exception on /venues/search [POST] [in C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py:1679]
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x00000147CF4E5E80 (otid=0x00000147CF3A4740) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1760, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1758, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1734, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py", line 91, in search_venues
+    results = Venue.query.filter(Venue.name.alike(f"%{request.form['search_term']}%")).all()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_sqlalchemy\__init__.py", line 552, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    sess = self.registry()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 4225, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_sqlalchemy\__init__.py", line 175, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2022-10-07 09:53:08,909 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:502]
+2022-10-07 09:53:36,199 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:502]
+2022-10-07 09:57:11,807 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:502]
+2022-10-07 09:57:51,331 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:502]
+2022-10-07 09:58:54,898 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:502]
+2022-10-07 10:15:40,284 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:502]
+2022-10-07 10:21:39,845 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:502]
+2022-10-07 10:22:46,661 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:502]
+2022-10-07 10:52:15,117 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:503]
+2022-10-07 10:52:48,323 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:503]
+2022-10-07 10:53:53,769 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:503]
+2022-10-07 10:55:10,195 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:503]
+2022-10-07 10:55:28,763 ERROR: Exception on /venues [GET] [in C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py:1679]
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: Venue
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1760, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1758, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1734, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py", line 68, in venues
+    venue_areas = db.session.query(Venue.city,Venue.state).group_by(Venue.state,Venue.city).all()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2772, in all
+    return self._iter().all()
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2907, in _iter
+    result = self.session.execute(
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
+    raise exception
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\PROGRESS ICT MEDIA\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: Venue
+[SQL: SELECT "Venue".city AS "Venue_city", "Venue".state AS "Venue_state" 
+FROM "Venue" GROUP BY "Venue".state, "Venue".city]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2022-10-07 11:03:12,781 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:503]
+2022-10-07 11:03:36,788 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:503]
+2022-10-07 11:31:10,917 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:503]
+2022-10-07 11:31:30,724 INFO: errors [in C:\Users\PROGRESS ICT MEDIA\Git Repo\myApp\app.py:503]
